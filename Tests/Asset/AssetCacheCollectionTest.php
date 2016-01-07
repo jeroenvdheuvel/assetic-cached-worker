@@ -27,7 +27,7 @@ class AssetCacheCollectionTest extends PHPUnit_Framework_TestCase
     }
     public function testAll()
     {
-        $assets = [new StringAsset('#1'), new StringAsset('#2')];
+        $assets = array(new StringAsset('#1'), new StringAsset('#2'));
 
         $mockedCollection = $this->getMockedAssetCollection();
         $mockedCollection->expects($this->once())->method('all')->with()->willReturn($assets);
@@ -118,7 +118,7 @@ class AssetCacheCollectionTest extends PHPUnit_Framework_TestCase
         $cacheKey = md5('0load');
         $content = 'original';
         $asset = new StringAsset($content);
-        $assetCollection = new AssetCollection([$asset]);
+        $assetCollection = new AssetCollection(array($asset));
 
         $cache = new ArrayCache();
         $cachedCollection = new AssetCacheCollection($assetCollection, $cache);
@@ -136,7 +136,8 @@ class AssetCacheCollectionTest extends PHPUnit_Framework_TestCase
         $mockedAssetCollection
             ->expects($this->once())
             ->method('getFilters')
-            ->willReturn([]);
+            ->willReturn(array());
+
         $mockedAssetCollection
             ->expects($this->never())
             ->method('load');
@@ -153,7 +154,7 @@ class AssetCacheCollectionTest extends PHPUnit_Framework_TestCase
         $cacheKey = md5('0dump');
         $content = 'original';
         $asset = new StringAsset($content);
-        $assetCollection = new AssetCollection([$asset]);
+        $assetCollection = new AssetCollection(array($asset));
 
         $cache = new ArrayCache();
         $cachedCollection = new AssetCacheCollection($assetCollection, $cache);
@@ -171,7 +172,8 @@ class AssetCacheCollectionTest extends PHPUnit_Framework_TestCase
         $mockedAssetCollection
             ->expects($this->once())
             ->method('getFilters')
-            ->willReturn([]);
+            ->willReturn(array());
+
         $mockedAssetCollection
             ->expects($this->never())
             ->method('dump');

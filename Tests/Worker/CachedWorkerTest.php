@@ -37,7 +37,7 @@ class CachedWorkerTest extends PHPUnit_Framework_TestCase
 
     public function testProcess_withAssetCollection()
     {
-        $assetCollection = new AssetCollection([new StringAsset('#1'), new StringAsset('#2')]);
+        $assetCollection = new AssetCollection(array(new StringAsset('#1'), new StringAsset('#2')));
         $cache = new ArrayCache();
         $assetCache = new AssetCacheCollection($assetCollection, $cache);
 
