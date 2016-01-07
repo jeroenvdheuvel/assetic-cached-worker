@@ -7,7 +7,6 @@ use Assetic\Asset\AssetCollectionInterface;
 use Assetic\Asset\StringAsset;
 use Assetic\Cache\ArrayCache;
 use InvalidArgumentException;
-use IteratorAggregate;
 use jvdh\AsseticCachedWorker\Asset\AssetCacheCollection;
 use PHPUnit_Framework_Constraint_IsIdentical as IsIdentical;
 use PHPUnit_Framework_MockObject_MockObject;
@@ -110,7 +109,7 @@ class AssetCacheCollectionTest extends PHPUnit_Framework_TestCase
         $cachedCollection = new AssetCacheCollection($mockedCollection, new ArrayCache());
 
         $this->assertSame($mockedCollection, $cachedCollection->getIterator());
-        $this->assertInstanceOf(IteratorAggregate::class, $cachedCollection);
+        $this->assertInstanceOf('IteratorAggregate', $cachedCollection);
     }
 
     public function testLoad_withoutCache_loadsFromOriginal()
@@ -190,6 +189,6 @@ class AssetCacheCollectionTest extends PHPUnit_Framework_TestCase
      */
     private function getMockedAssetCollection()
     {
-        return $this->getMockBuilder(AssetCollectionInterface::class)->disableOriginalConstructor()->getMock();
+        return $this->getMockBuilder('Assetic\Asset\AssetCollectionInterface')->disableOriginalConstructor()->getMock();
     }
 }

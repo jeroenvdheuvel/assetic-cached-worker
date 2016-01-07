@@ -58,7 +58,7 @@ class CachedWorkerTest extends PHPUnit_Framework_TestCase
      */
     private function getMockedWorker()
     {
-        return $this->getMockBuilder(WorkerInterface::class)->disableOriginalConstructor()->getMock();
+        return $this->getMockBuilder('Assetic\Factory\Worker\WorkerInterface')->disableOriginalConstructor()->getMock();
     }
 
     /**
@@ -66,6 +66,6 @@ class CachedWorkerTest extends PHPUnit_Framework_TestCase
      */
     private function getMockedAssetFactory()
     {
-        return $this->getMockBuilder(AssetFactory::class)->disableOriginalConstructor()->getMock();
+        return $this->getMockBuilder('Assetic\Factory\AssetFactory')->disableOriginalConstructor()->getMock();
     }
 }
